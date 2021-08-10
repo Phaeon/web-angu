@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <h3 class="navbar-header">Jack's Website</h3>
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="!isAuth">
+                <a>S'identifier</a>
+            </li>
+            <li>
+                <button style="cursor:pointer"
+                    class="btn btn-default pull-right navbar-btn"
+                    *ngIf="isAuth">Déconnexion
+                </button>
+            </li>
+        </ul>
+    </div>
+  </nav>
