@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
