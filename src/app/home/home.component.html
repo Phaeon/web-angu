@@ -1,11 +1,12 @@
-<div id="title">
-    <h1>Bienvenue !</h1>
+<div class="container">
+  <div id="title">
+    <h1>Bienvenue !</h1> <br>
     <h4>Vous pouvez vous connecter, vous inscrire ou continuer en tant que invité.</h4>    
-</div>
-<div class="row" id="f_conn">
-    <div class="col-sm-6">
-      <h2>Créer votre compte</h2>
-      <form class="form-horizontal">
+  </div>
+  <div class="row" *ngIf="!isAuth">
+    <div class="col-sm-8 col-md-offset-2">
+      <h2 style="margin-top: 2em;">Créer votre compte</h2>
+      <form class="form-horizontal" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <div style="margin-top: 3em; margin-bottom: 3em;">
             <div class="form-group">
                 <label class="control-label col-sm-4" for="login">Identifiant :</label>
@@ -74,6 +75,7 @@
         </form>
       </div>
   </div>
-  <div>
-      <h4>Continuer en tant qu'<a style="cursor:pointer">invité</a></h4>
+  <div id="tail" *ngIf="!isAuth">
+    <p>Vous avez déjà un compte ? Alors <a routerLink="/signin">connectez-vous</a> !</p>
   </div>
+</div>
