@@ -1,14 +1,25 @@
-<nav class="navbar navbar-default">
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a href="#">Accueil</a>
+</div>
+  
+<nav class="navbar navbar-default" id="mynav">
     <div class="container-fluid">
         <h3 class="navbar-header">Jack's Website</h3>
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a (click)="openNav()" style="font-size:xx-large; font-family: 'Lucida Console', Courier, monospace;">&equiv;</a>
+            </li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li *ngIf="!isAuth">
-                <a>S'identifier</a>
+            <li *ngIf="!isAuth" routerLinkActive="active">
+                <a routerLink="/signin">S'identifier</a>
             </li>
             <li>
                 <button style="cursor:pointer"
                     class="btn btn-default pull-right navbar-btn"
-                    *ngIf="isAuth">Déconnexion
+                    *ngIf="isAuth"
+                    (click)="onSignOut()">Déconnexion
                 </button>
             </li>
         </ul>

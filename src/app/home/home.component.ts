@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  signupForm!: FormGroup;
+  errorMessage!: string;
 
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder, 
+    private router: Router, 
+    private authService: AuthService) 
+  { }
+
+  ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+    this.signupForm = this.formBuilder.group({
+      id_name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      pswd: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
+    });
+  }
+
+  onSubmit() {
+    const user = this.signupForm.get('id_name')!.value;
+    const email = this.signupForm.get('email')!.value;
+    const password = this.signupForm.get('pswd')!.value;
+    
+    this.authService.createNewUser(email, password).then(
+      () => {
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        this.errorMessage = error;
+      }
+    );
   }
 
 }
