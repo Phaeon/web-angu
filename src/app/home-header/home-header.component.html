@@ -1,6 +1,8 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a href="#">Accueil</a>
+    <a routerLink="/">Accueil</a>
+    <a routerLink="/posts">Posts</a>
+    <a routerLink="/new-post" *ngIf="isAuth">Nouveau Post</a>
 </div>
   
 <nav class="navbar navbar-default navbar-fixed-top" id="mynav">

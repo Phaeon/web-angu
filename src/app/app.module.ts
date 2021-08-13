@@ -9,21 +9,28 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostComponent } from './post/post.component';
+import { PostService } from './services/post.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeHeaderComponent,
     HomeComponent,
-    SigninComponent
+    SigninComponent,
+    PostListComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

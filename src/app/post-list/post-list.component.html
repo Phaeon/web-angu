@@ -1,0 +1,8 @@
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let post of posts">
+      <h3 class="text-left">{{ post.title }}</h3>
+      <h4 class="text-left">{{ post.resume }}</h4>
+      <p class="text-left">{{ post.content }}</p>
+      Modération : <button class="btn btn-danger" (click)="onRemoval(post)">Supprimer</button>
+    </li>
+</ul>
