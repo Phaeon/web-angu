@@ -10,7 +10,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostListComponent } from './post-list/post-list.component';
-import { PostComponent } from './post/post.component';
+import { NewPostComponent } from './post/new-post.component';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SigninComponent,
     PostListComponent,
-    PostComponent
+    NewPostComponent
   ],
   imports: [
     BrowserModule,

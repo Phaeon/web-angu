@@ -3,6 +3,10 @@ import { Subscription } from 'rxjs';
 import { Post } from '../models/post.model';
 import { PostService } from '../services/post.service';
 
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -10,6 +14,7 @@ import { PostService } from '../services/post.service';
 })
 export class PostListComponent implements OnInit {
 
+  isAuth = false;
   posts!: Post[];
   postSubscription!: Subscription;
 
@@ -22,6 +27,16 @@ export class PostListComponent implements OnInit {
       }
     );
     this.postService.emitPosts();
+
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if(user) {
+          this.isAuth = true;
+        } else {
+          this.isAuth = false;
+        }
+      }
+    );
   }
 
   onRemoval(post: Post) {

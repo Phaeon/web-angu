@@ -1,8 +1,10 @@
 <div class="container">
-  <div id="title">
+
+  <div>
     <h1>Bienvenue !</h1> <br>
-    <h4>Vous pouvez vous connecter, vous inscrire ou continuer en tant que invité.</h4>    
+    <h4 *ngIf="!isAuth">Vous pouvez vous connecter, vous inscrire ou continuer en tant que invité.</h4>    
   </div>
+
   <div class="row" *ngIf="!isAuth">
     <div class="col-sm-8 col-md-offset-2">
       <h2 style="margin-top: 2em;">Créer votre compte</h2>
@@ -34,7 +36,15 @@
       </form>
     </div>
   </div>
-  <div id="tail" *ngIf="!isAuth">
+
+  <div *ngIf="!isAuth">
     <p>Vous avez déjà un compte ? Alors <a routerLink="/signin">connectez-vous</a> !</p>
   </div>
+
+  <div class="row center-div" *ngIf="isAuth">
+    <div>
+      <h3 style="margin-top: 2em;">Cette page est en construction, vous pouvez vous utiliser le menu en haut à gauche pour vous diriger sur le site.</h3>
+    </div>
+  </div>
+  
 </div>
