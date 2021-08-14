@@ -23,7 +23,7 @@ ATTENTION : Il faut penser à ajouter `--skip-install=true;` lors de la créatio
 
 #### Création de serveur
 
-Avant tout, il vous faut installer (Node.js)[https://nodejs.org/fr/download/] (vous n'avez pas à savoir l'utiliser) qui va vous aider à installer les fichiers nécessaires, je vous laisse suivre les directives fournies pour installer cet outil.
+Avant tout, il vous faut installer [Node.js](https://nodejs.org/fr/download/) (vous n'avez pas à savoir l'utiliser) qui va vous aider à installer les fichiers nécessaires, je vous laisse suivre les directives fournies pour installer cet outil.
 Il ne vous faut pas installer un serveur web, Node.js vous fera tout cela.
 
 Quand tout cela sera installé, vous pouvez exécuter la commande suivante là où vous souhaitez créer votre projet : `ng new $1 --style=scss --skip-tests=true`;
@@ -42,7 +42,7 @@ Exécutez `ng generate component component-name` pour générer un nouveau compo
 
 ### Firebase
 
-Ce projet utilise (firebase)[https://firebase.google.com/] qui sert notamment pour l'authentification par email et mot de passe ainsi que pour l'enregistrement de données dans une base (notamment les posts).
+Ce projet utilise [firebase](https://firebase.google.com/) qui sert notamment pour l'authentification par email et mot de passe ainsi que pour l'enregistrement de données dans une base (notamment les posts).
 
 Le code ici mets à disposition une connexion à ma base de données donc il n'y a aurait pas de possibilité de détruire manuellement des informations. Je vous conseille donc de vous créer un compte en ligne et de lier votre base `firebase` à votre projet.
 
