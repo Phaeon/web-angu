@@ -1,40 +1,16 @@
 <div class="container">
-  <div id="title">
+
+  <div>
     <h1>Bienvenue !</h1> <br>
-    <h4>Vous pouvez vous connecter, vous inscrire ou continuer en tant que invité.</h4>    
+    <h4 *ngIf="!isAuth">Vous pouvez vous connecter, vous inscrire ou continuer en tant que invité.</h4>    
   </div>
-  <div class="row" *ngIf="!isAuth">
-    <div class="col-sm-8 col-md-offset-2">
-      <h2 style="margin-top: 2em;">Créer votre compte</h2>
-      <form class="form-horizontal" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <div style="margin-top: 3em; margin-bottom: 3em;">
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="login">Identifiant :</label>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" id="login" placeholder="Entrez un identifiant" formControlName="id_name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-4" for="mail">Adresse mail :</label>
-                <div class="col-sm-6">
-                  <input type="email" class="form-control" id="mail" placeholder="Entrez votre adresse mail"  formControlName="email">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-4" for="pwd">Mot de passe :</label>
-                <div class="col-sm-6">          
-                  <input type="password" class="form-control" id="pwd" placeholder="Entrez un mot de passe"  formControlName="pswd">
-                </div>
-              </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-default" style="margin-bottom: 2em;" [disabled]="signupForm.invalid">Créer un compte</button>
-        </div>
-        <p class="error">{{ errorMessage }}</p>
-      </form>
+
+  <app-signup *ngIf="!isAuth"></app-signup>
+
+  <div class="row center-div" *ngIf="isAuth">
+    <div>
+      <h3 style="margin-top: 2em;">Cette page est en construction, vous pouvez vous utiliser le menu en haut à gauche pour vous diriger sur le site.</h3>
     </div>
   </div>
-  <div id="tail" *ngIf="!isAuth">
-    <p>Vous avez déjà un compte ? Alors <a routerLink="/signin">connectez-vous</a> !</p>
-  </div>
+
 </div>

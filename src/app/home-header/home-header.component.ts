@@ -14,7 +14,6 @@ export class HomeHeaderComponent implements OnInit {
 
   isAuth = false;
   color!: string;
-  margin!: number;
 
   constructor(private authService: AuthService) { 
     this.color = document.body.style.backgroundColor

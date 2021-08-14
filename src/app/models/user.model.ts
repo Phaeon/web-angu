@@ -1,5 +1,11 @@
+export enum Role {
+    Visitor = "Visitor",
+    Moderator = "Moderator",
+    Admin = "Admin"
+}
+
 export class User {
 
-    constructor(userName: string, passwd: string, email: string) {}
-
+    constructor(public userName: string, public uid: string, public role: Role) {}
+    
 }

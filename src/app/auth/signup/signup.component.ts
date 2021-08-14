@@ -1,52 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import firebase from "firebase/app";
+import firebase from 'firebase';
 import "firebase/auth";
-import "firebase/firestore";
-import { Subscription } from 'rxjs';
-import { Role, User } from '../models/user.model';
-import { AuthService } from '../services/auth.service';
-import { UserService } from '../services/user.service';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   signupForm!: FormGroup;
   errorMessage!: string;
 
-  users: User[] = [];
-
-  isAuth = false;
-  isAdmin = false;
-
-  constructor(private userService: UserService,
+  constructor(
     private formBuilder: FormBuilder, 
     private router: Router, 
     private authService: AuthService) 
   { }
 
   ngOnInit() {
-
     this.initForm();
-
-    firebase.auth().onAuthStateChanged(
-      (user) => {
-        if(user) {
-          if (this.userService.isAdmitted(user.email as string)) this.isAdmin = true;
-          this.isAuth = true;
-        } else {
-          this.isAuth = false;
-        }
-      }
-    );
-
-    
   }
 
   initForm() {
@@ -64,7 +42,6 @@ export class HomeComponent implements OnInit {
     
     this.authService.createNewUser(email, password, user).then(
       () => {
-
         this.router.navigate(['/']);
       },
       (error) => {
