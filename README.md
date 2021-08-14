@@ -13,23 +13,23 @@
 
 #### node_modules
 
-En installant les dépendances, vous remarquerez que le poids est assez lourd. Imaginez devoir installer ces dépendances à chaque projet !
+En installant les dépendances, vous remarquerez que le poids est assez lourd. Imaginez devoir installer ces dépendances pour chaque projet !
 
 Il faut savoir que si le projet ne trouve pas l'ensemble des dépendances (node_modules), il va chercher dans le dossier parent, jusqu'à arriver au root et ensuite renvoyer une erreur.
 
 Vous pouvez donc installer les dépendances une fois et les déplacer dans le dossier parent, là où vous construirez l'ensemble de vos projets. Donc économie en espace et vous n'aurez plus à les installer pour chaque projet.
 
-ATTENTION : Il faut penser à ajouter `--skip-install=true;` lors de la création de projet pour ne pas à avoir à installer ces dépendances.
+ATTENTION : Il faut penser à ajouter l'option `--skip-install=true;` lors de la création de projet pour ne pas à avoir à installer ces dépendances.
 
-#### Création de serveur
+#### Création de projet
 
 Avant tout, il vous faut installer [Node.js](https://nodejs.org/fr/download/) (vous n'avez pas à savoir l'utiliser) qui va vous aider à installer les fichiers nécessaires, je vous laisse suivre les directives fournies pour installer cet outil.
 Il ne vous faut pas installer un serveur web, Node.js vous fera tout cela.
 
-Quand tout cela sera installé, vous pouvez exécuter la commande suivante là où vous souhaitez créer votre projet : `ng new $1 --style=scss --skip-tests=true`;
+Quand tout cela sera installé, vous pouvez exécuter la commande suivante là où vous souhaitez créer votre projet : `ng new $1 --style=css --skip-tests=true`;
 Notez que si vous souhaitez utiliser les mêmes dépendances `node_modules` pour tous vos projets, cette commande sera probablement exécutée au même endroit que ces fichiers.
 
-Accéder à votre projet simplement avec `cd nom_projet` et si vous souhaitez installer boostrap avec votre projet, exécutez la commande suivante : `npm install bootstrap@3.3.7 --save;`.
+Accéder à votre projet simplement avec `cd nom_projet` et si vous souhaitez installer bootstrap pour votre projet, exécutez la commande suivante : `npm install bootstrap@3.3.7 --save;`.
 Dans le fichier `angular.json`, il faut penser à ajouter `"node_modules/bootstrap/dist/css/bootstrap.css"` dans la liste des feuilles de style dans la rubrique `projects/architect/build/options/styles`.
 
 ### Déployez votre serveur
@@ -44,7 +44,7 @@ Exécutez `ng generate component component-name` pour générer un nouveau compo
 
 Ce projet utilise [firebase](https://firebase.google.com/) qui sert notamment pour l'authentification par email et mot de passe ainsi que pour l'enregistrement de données dans une base (notamment les posts).
 
-Le code ici mets à disposition une connexion à ma base de données donc il n'y a aurait pas de possibilité de détruire manuellement des informations. Je vous conseille donc de vous créer un compte en ligne et de lier votre base `firebase` à votre projet.
+Le code ici mets à disposition une connexion à ma base de données donc il n'y a aurait pas de possibilité de détruire manuellement les informations. Je vous conseille donc de vous créer un compte en ligne et de lier votre base `firebase` à votre projet.
 
 La configuration se modifie dans le fichier `src/app/app.component.ts`.
 
