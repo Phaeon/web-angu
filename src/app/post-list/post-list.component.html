@@ -1,9 +1,19 @@
+<div id="nouveau">
+    <h2 style="margin-bottom: 1em;">Les posts</h2>
+    <p>Un nouveau post ? Une nouvelle pensée à partager ?</p>
+    <button class="btn btn-primary" routerLink="/new-post">
+        Créez votre post
+    </button> 
+</div>
 <ul class="list-group">
-    <li class="list-group-item" *ngFor="let post of posts">
-        <h3 class="text-left">{{ post.title }}</h3>
-        <h4 class="text-left">{{ post.resume }}</h4>
-        <p class="text-left">{{ post.content }}</p>
-        <div *ngIf="isAuth" style="margin-top: 2em;">Modération : 
+    <li class="list-group-item" *ngFor="let post of posts" style="margin-top: 1em; margin-bottom: 1em;">
+        <div style="position: relative; margin-bottom: 1em;">
+            <h3 class="absolute-bottom-right text-left"> {{ post.title }} </h3>
+            <em> {{ post.author }}, {{ post.date }} </em>
+        </div>
+        <h5 class="text-left">{{ post.resume }}</h5>
+        <p class="text-center" style="margin-top: 3em;">{{ post.content }}</p>
+        <div *ngIf="isAdmin" style="margin-top: 2em;">Modération : 
             <button class="btn btn-danger" 
             (click)="onRemoval(post)">Supprimer</button>
         </div>

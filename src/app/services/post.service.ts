@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Post } from '../models/post.model';
 
-import firebase from 'firebase';
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/database"
 
 import DataSnapshot = firebase.database.DataSnapshot;
 

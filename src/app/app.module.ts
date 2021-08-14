@@ -13,6 +13,9 @@ import { PostListComponent } from './post-list/post-list.component';
 import { NewPostComponent } from './post/new-post.component';
 import { PostService } from './services/post.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { UserService } from './services/user.service';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SigninComponent,
     PostListComponent,
-    NewPostComponent
+    NewPostComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AuthGuardService, PostService],
+  providers: [AuthService, AuthGuardService, PostService, UserService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
